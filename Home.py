@@ -4,6 +4,7 @@ import functions
 
 todos = functions.get_todos()
 
+st.set_page_config(layout='wide')
 def add_todo():
     todo=st.session_state['new_todo']+'\n'
     todos.append(todo)
@@ -11,7 +12,8 @@ def add_todo():
 
 
 st.title('Todo App')
-st.subheader("Trace your daily activities")
+st.write("Trace your daily <b>activities<b>",
+             unsafe_allow_html=True)
 
 for index,todo in enumerate(todos):
     checkbox = st.checkbox(todo, key=todo)
